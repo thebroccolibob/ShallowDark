@@ -2,12 +2,14 @@ package io.github.thebroccolibob.shallowdark.block
 
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
+import net.minecraft.block.Blocks
 import net.minecraft.block.PlantBlock
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.state.StateManager
 import net.minecraft.state.property.Properties
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.random.Random
+import net.minecraft.world.BlockView
 
 // All blocks need settings, so we just pass it to Block
 class SculkWartBlock(settings: Settings) : PlantBlock(settings) {
@@ -38,7 +40,11 @@ class SculkWartBlock(settings: Settings) : PlantBlock(settings) {
     override fun randomTick(state: BlockState, world: ServerWorld, pos: BlockPos, random: Random) {
        state[AGE].let {
            if (it < 3)
-               world.setBlockState(pos, state.with(AGE, it + 1), 2) // idk what 2 does but NetherWartBlock has it
+               world.setBlockState(pos, state.with(AGE, it + 1), 2) //Ignore the 2
        }
+    }
+
+    override fun canPlantOnTop(floor: BlockState, world: BlockView?, pos: BlockPos?): Boolean {
+        return floor.isOf(Blocks.SCULK)
     }
 }
