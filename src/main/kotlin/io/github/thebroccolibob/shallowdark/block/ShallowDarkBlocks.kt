@@ -22,6 +22,7 @@ object ShallowDarkBlocks {
         luminance(7)
     }))
 
+    @JvmField
     val SCULK_JAW = register("sculk_jaw", SculkJawBlock(FabricBlockSettings {
         sounds(BlockSoundGroup.SCULK_SENSOR)
     }))
