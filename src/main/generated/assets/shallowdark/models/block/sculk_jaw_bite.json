@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_top",
+  "parent": "minecraft:block/cube_bottom_top",
   "textures": {
+    "bottom": "shallowdark:block/sculk_jaw_top",
     "side": "minecraft:block/sculk",
     "top": "shallowdark:block/sculk_jaw_top_bite"
   }

@@ -30,7 +30,6 @@ object ShallowDarkItems {
         // Add to creative inventory tab
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register {
             it.add(SCULK_WART)
-            it.add(SCULK_JAW)
         }
     }
 }

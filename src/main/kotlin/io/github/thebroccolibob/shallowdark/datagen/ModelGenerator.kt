@@ -12,11 +12,12 @@ class ModelGenerator(output: FabricDataOutput) : FabricModelProvider(output) {
 
     override fun generateBlockStateModels(blockStateModelGenerator: BlockStateModelGenerator) {
         val sculkJawModels = object {
-            fun upload(suffix: String) = Models.CUBE_TOP.upload(
+            fun upload(suffix: String) = Models.CUBE_BOTTOM_TOP.upload(
                 ModelIds.getBlockSubModelId(ShallowDarkBlocks.SCULK_JAW, suffix),
                 TextureMap().apply {
                     put(TextureKey.SIDE, TextureMap.getId(Blocks.SCULK))
                     put(TextureKey.TOP, TextureMap.getSubId(ShallowDarkBlocks.SCULK_JAW, "_top$suffix"))
+                    put(TextureKey.BOTTOM, TextureMap.getSubId(ShallowDarkBlocks.SCULK_JAW, "_top"))
                 },
                 blockStateModelGenerator.modelCollector
             )
@@ -30,14 +31,19 @@ class ModelGenerator(output: FabricDataOutput) : FabricModelProvider(output) {
 
         blockStateModelGenerator.blockStateCollector.accept(
             VariantsBlockStateSupplier.create(ShallowDarkBlocks.SCULK_JAW).coordinate(
-                BlockStateVariantMap.create(SculkJawBlock.TEETH, SculkJawBlock.BITE).register { teeth, bite ->
+                BlockStateVariantMap.create(SculkJawBlock.TEETH, SculkJawBlock.BITE).registerVariants { teeth, bite ->
                     val model = when (true) {
                         bite -> sculkJawModels.BITE
                         teeth -> sculkJawModels.TEETH
                         else -> sculkJawModels.DEFAULT
                     }
 
-                    BlockStateVariant.create().put(VariantSettings.MODEL, model)
+                    listOf(
+                        BlockStateVariant.create().put(VariantSettings.MODEL, model),
+                        BlockStateVariant.create()
+                            .put(VariantSettings.MODEL, model)
+                            .put(VariantSettings.Y, VariantSettings.Rotation.R90)
+                    )
                 }
             )
         )

@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory
 
 object ShallowDark : ModInitializer {
 	val modId = "shallowdark"
-    private val logger = LoggerFactory.getLogger(modId)
+    val logger = LoggerFactory.getLogger(modId)
 
 	override fun onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.

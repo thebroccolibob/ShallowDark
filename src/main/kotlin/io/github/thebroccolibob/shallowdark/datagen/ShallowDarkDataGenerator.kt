@@ -6,7 +6,8 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator
 object ShallowDarkDataGenerator : DataGeneratorEntrypoint {
 	override fun onInitializeDataGenerator(fabricDataGenerator: FabricDataGenerator) {
 		fabricDataGenerator.createPack().apply {
-			addProvider(::TagGenerator)
+			addProvider(TagGenerators::Entities)
+			addProvider(TagGenerators::Blocks)
 			addProvider(::ModelGenerator)
 		}
 	}
