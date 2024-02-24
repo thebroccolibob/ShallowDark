@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "bite=false,teeth=false": {
+      "model": "shallowdark:block/sculk_jaw"
+    },
+    "bite=false,teeth=true": {
+      "model": "shallowdark:block/sculk_jaw_teeth"
+    },
+    "bite=true,teeth=false": {
+      "model": "shallowdark:block/sculk_jaw_bite"
+    },
+    "bite=true,teeth=true": {
+      "model": "shallowdark:block/sculk_jaw_bite"
+    }
+  }
+}

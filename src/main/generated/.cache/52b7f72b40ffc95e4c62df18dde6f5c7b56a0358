@@ -1,7 +1,12 @@
-// 1.20.1	2024-02-21T12:22:52.1992593	ShallowDark/Model Definitions
-4a582e4c48cef2abd3ed10973b5f39b7ec69b606 assets\shallowdark\models\block\sculk_wart_stage1.json
-8edea51674f2efa479a12eb7e8333a6ba457e56d assets\shallowdark\models\item\sculk_wart.json
-856685d60a0689aa10ef566b467e36b1ae72f121 assets\shallowdark\models\block\sculk_wart_stage0.json
-a3ebf77ba98a589c12b4ffd1cc412ff58b79bdc1 assets\shallowdark\models\block\sculk_wart_stage3.json
-ebd95b171f025a2f5591dcd0f95b69644e6dbffd assets\shallowdark\models\block\sculk_wart_stage2.json
-d6d89c87126127b12bafd771ee5a268ed2333afd assets\shallowdark\blockstates\sculk_wart.json
+// 1.20.1	2024-02-23T17:51:09.79874291	ShallowDark/Model Definitions
+8edea51674f2efa479a12eb7e8333a6ba457e56d assets/shallowdark/models/item/sculk_wart.json
+ebd95b171f025a2f5591dcd0f95b69644e6dbffd assets/shallowdark/models/block/sculk_wart_stage2.json
+86a58d60aef46902e83a6fee34c08d3648b478fe assets/shallowdark/models/item/sculk_jaw.json
+8282d0529d27fb3c3a5ab3a6fa7cbf71fe9bd54c assets/shallowdark/blockstates/sculk_jaw.json
+a3ebf77ba98a589c12b4ffd1cc412ff58b79bdc1 assets/shallowdark/models/block/sculk_wart_stage3.json
+d6d89c87126127b12bafd771ee5a268ed2333afd assets/shallowdark/blockstates/sculk_wart.json
+1e1d1c60842d2a1b4e8df6736a1eba18e220534f assets/shallowdark/models/block/sculk_jaw.json
+856685d60a0689aa10ef566b467e36b1ae72f121 assets/shallowdark/models/block/sculk_wart_stage0.json
+4a582e4c48cef2abd3ed10973b5f39b7ec69b606 assets/shallowdark/models/block/sculk_wart_stage1.json
+39eb9a94fc20c6524dcef593a21deb92f79ae2dc assets/shallowdark/models/block/sculk_jaw_bite.json
+0ad3e7221b4cd33885a69c7b2cacaf3dbb3cd55e assets/shallowdark/models/block/sculk_jaw_teeth.json

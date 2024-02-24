@@ -4,13 +4,13 @@ import io.github.thebroccolibob.shallowdark.ShallowDark
 import io.github.thebroccolibob.shallowdark.block.ShallowDarkBlocks
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
+import net.minecraft.block.Block
 import net.minecraft.item.BlockItem
+import net.minecraft.item.Item
+import net.minecraft.item.ItemGroups
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
 import net.minecraft.util.Identifier
-import net.minecraft.block.Block
-import net.minecraft.item.Item
-import net.minecraft.item.ItemGroups
 
 object ShallowDarkItems {
     // Creates an item from a block
@@ -24,11 +24,13 @@ object ShallowDarkItems {
     }
 
     val SCULK_WART = register(ShallowDarkBlocks.SCULK_WART)
+    val SCULK_JAW = register(ShallowDarkBlocks.SCULK_JAW)
 
     fun register() {
         // Add to creative inventory tab
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register {
             it.add(SCULK_WART)
+            it.add(SCULK_JAW)
         }
     }
 }

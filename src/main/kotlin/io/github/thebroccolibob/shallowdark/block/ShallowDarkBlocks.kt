@@ -2,11 +2,9 @@ package io.github.thebroccolibob.shallowdark.block
 
 import io.github.thebroccolibob.shallowdark.FabricBlockSettings
 import io.github.thebroccolibob.shallowdark.ShallowDark
-import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
-import net.minecraft.registry.Registry
-import net.minecraft.registry.Registries
 import net.minecraft.block.Block
-import net.minecraft.block.CropBlock
+import net.minecraft.registry.Registries
+import net.minecraft.registry.Registry
 import net.minecraft.sound.BlockSoundGroup
 import net.minecraft.util.Identifier
 
@@ -21,6 +19,10 @@ object ShallowDarkBlocks {
         ticksRandomly()
         breakInstantly()
         luminance(7)
+    }))
+
+    val SCULK_JAW = register("sculk_jaw", SculkJawBlock(FabricBlockSettings {
+        sounds(BlockSoundGroup.SCULK_SENSOR)
     }))
 
     fun register() {}
