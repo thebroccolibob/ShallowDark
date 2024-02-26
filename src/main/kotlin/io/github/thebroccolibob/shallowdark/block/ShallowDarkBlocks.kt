@@ -15,6 +15,7 @@ object ShallowDarkBlocks {
 
     val SCULK_WART = register("sculk_wart", SculkWartBlock(FabricBlockSettings {
         sounds(BlockSoundGroup.SCULK)
+        nonOpaque()
         noCollision()
         ticksRandomly()
         breakInstantly()

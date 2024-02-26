@@ -15,7 +15,7 @@ import net.minecraft.world.BlockView
 class SculkWartBlock(settings: Settings) : PlantBlock(settings) {
     // Step 1: add block states
     companion object {
-        val AGE = Properties.AGE_3
+        val AGE = Properties.AGE_3!!
     }
 
     // Step 2 Set Default State
@@ -31,7 +31,7 @@ class SculkWartBlock(settings: Settings) : PlantBlock(settings) {
     // Every tick, 3 blocks are randomly selected within each sub-chunk (16x16x16)
     // Some blocks have special handling e.g. plant growth
     override fun hasRandomTicks(state: BlockState): Boolean {
-        return state[AGE] < 3;
+        return state[AGE] < 3
     }
 
     // Certain minecraft functions are marked as deprecated, but it doesn't mean you shouldn't use it, it means something else
