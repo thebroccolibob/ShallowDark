@@ -4,12 +4,17 @@ import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.block.Blocks
 import net.minecraft.block.PlantBlock
+import net.minecraft.entity.Entity
+import net.minecraft.entity.effect.StatusEffectInstance
+import net.minecraft.entity.effect.StatusEffects
+import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.state.StateManager
 import net.minecraft.state.property.Properties
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.random.Random
 import net.minecraft.world.BlockView
+import net.minecraft.world.World
 
 // All blocks need settings, so we just pass it to Block
 class SculkWartBlock(settings: Settings) : PlantBlock(settings) {
@@ -46,5 +51,12 @@ class SculkWartBlock(settings: Settings) : PlantBlock(settings) {
 
     override fun canPlantOnTop(floor: BlockState, world: BlockView?, pos: BlockPos?): Boolean {
         return floor.isOf(Blocks.SCULK)
+    }
+
+    @Suppress("OVERRIDE_DEPRECATION")
+    override fun onEntityCollision(state: BlockState?, world: World?, pos: BlockPos?, entity: Entity?) {
+        if(entity is PlayerEntity) {
+            entity.addStatusEffect(StatusEffectInstance(StatusEffects.DARKNESS, 100))
+        }
     }
 }
