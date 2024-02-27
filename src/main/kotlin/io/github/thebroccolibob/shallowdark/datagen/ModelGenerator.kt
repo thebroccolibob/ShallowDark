@@ -12,12 +12,12 @@ class ModelGenerator(output: FabricDataOutput) : FabricModelProvider(output) {
 
     override fun generateBlockStateModels(blockStateModelGenerator: BlockStateModelGenerator) {
         val sculkJawModels = object {
-            fun upload(suffix: String) = Models.CUBE_BOTTOM_TOP.upload(
-                ModelIds.getBlockSubModelId(ShallowDarkBlocks.SCULK_JAW, suffix),
+            private fun upload(suffix: String) = Models.CUBE_BOTTOM_TOP.upload(
+                ShallowDarkBlocks.SCULK_JAW.modelId(suffix),
                 TextureMap().apply {
-                    put(TextureKey.SIDE, TextureMap.getId(Blocks.SCULK))
-                    put(TextureKey.TOP, TextureMap.getSubId(ShallowDarkBlocks.SCULK_JAW, "_top$suffix"))
-                    put(TextureKey.BOTTOM, TextureMap.getSubId(ShallowDarkBlocks.SCULK_JAW, "_top"))
+                    put(TextureKey.SIDE, Blocks.SCULK.textureId)
+                    put(TextureKey.TOP, ShallowDarkBlocks.SCULK_JAW.textureId("_top$suffix"))
+                    put(TextureKey.BOTTOM, ShallowDarkBlocks.SCULK_JAW.textureId("_top"))
                 },
                 blockStateModelGenerator.modelCollector
             )
@@ -29,24 +29,20 @@ class ModelGenerator(output: FabricDataOutput) : FabricModelProvider(output) {
 
         blockStateModelGenerator.registerCrop(ShallowDarkBlocks.SCULK_WART, SculkWartBlock.AGE, 0, 1, 2, 3)
 
-        blockStateModelGenerator.blockStateCollector.accept(
-            VariantsBlockStateSupplier.create(ShallowDarkBlocks.SCULK_JAW).coordinate(
-                BlockStateVariantMap.create(SculkJawBlock.TEETH, SculkJawBlock.BITE).registerVariants { teeth, bite ->
-                    val model = when (true) {
-                        bite -> sculkJawModels.BITE
-                        teeth -> sculkJawModels.TEETH
-                        else -> sculkJawModels.DEFAULT
-                    }
+        blockStateModelGenerator.registerVariantStates(ShallowDarkBlocks.SCULK_JAW, SculkJawBlock.TEETH, SculkJawBlock.BITE) { teeth, bite ->
+            val model = when (true) {
+                bite -> sculkJawModels.BITE
+                teeth -> sculkJawModels.TEETH
+                else -> sculkJawModels.DEFAULT
+            }
 
-                    listOf(
-                        BlockStateVariant.create().put(VariantSettings.MODEL, model),
-                        BlockStateVariant.create()
-                            .put(VariantSettings.MODEL, model)
-                            .put(VariantSettings.Y, VariantSettings.Rotation.R90)
-                    )
-                }
+            listOf(
+                BlockStateVariant.create().put(VariantSettings.MODEL, model),
+                BlockStateVariant.create()
+                    .put(VariantSettings.MODEL, model)
+                    .put(VariantSettings.Y, VariantSettings.Rotation.R90)
             )
-        )
+        }
     }
 
     override fun generateItemModels(itemModelGenerator: ItemModelGenerator?) {
