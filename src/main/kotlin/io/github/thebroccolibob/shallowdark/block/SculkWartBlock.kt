@@ -56,7 +56,7 @@ class SculkWartBlock(settings: Settings) : PlantBlock(settings) {
     @Suppress("OVERRIDE_DEPRECATION")
     override fun onEntityCollision(state: BlockState?, world: World?, pos: BlockPos?, entity: Entity?) {
         if(entity is PlayerEntity) {
-            entity.addStatusEffect(StatusEffectInstance(StatusEffects.DARKNESS, 100))
+            entity.addStatusEffect(StatusEffectInstance(StatusEffects.DARKNESS, 100, 0, false, false))
         }
     }
 }
