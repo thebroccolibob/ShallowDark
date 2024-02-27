@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/crop",
   "textures": {
-    "crop": "shallowdark:block/sculk_wart_stage1"
+    "crop": "shallowdark:block/sculk_wart_stage2"
   }
 }
