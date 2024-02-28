@@ -1,10 +1,10 @@
-// 1.20.1	2024-02-27T17:02:42.568016471	ShallowDark/Model Definitions
+// 1.20.1	2024-02-27T19:59:38.238661942	ShallowDark/Model Definitions
 8edea51674f2efa479a12eb7e8333a6ba457e56d assets/shallowdark/models/item/sculk_wart.json
 6ac6ce7fc108a8e3c52a8d99e623548d964acbc7 assets/shallowdark/models/block/sculk_bone_spike_base.json
-ebd95b171f025a2f5591dcd0f95b69644e6dbffd assets/shallowdark/models/block/sculk_wart_stage2.json
 4f722679e3153fa6054c011b78b35e4d57599256 assets/shallowdark/models/block/sculk_bone_spike_tip.json
+ebd95b171f025a2f5591dcd0f95b69644e6dbffd assets/shallowdark/models/block/sculk_wart_stage2.json
 b31296ab412acd11d067d4d26e755cdf099cc492 assets/shallowdark/blockstates/sculk_jaw.json
-274249aead7408ff91f5e3d26b52d58fbcfa237f assets/shallowdark/blockstates/sculk_bone_spike.json
+a5fa9d0c2cf146192beac75df765ee511c598be9 assets/shallowdark/blockstates/sculk_bone_spike.json
 4a582e4c48cef2abd3ed10973b5f39b7ec69b606 assets/shallowdark/models/block/sculk_wart_stage1.json
 f5905d4d2a22191f8277fe6f5a2f04b257c11451 assets/shallowdark/models/block/sculk_jaw_teeth.json
 86a58d60aef46902e83a6fee34c08d3648b478fe assets/shallowdark/models/item/sculk_jaw.json

@@ -57,23 +57,30 @@ class ModelGenerator(output: FabricDataOutput) : FabricModelProvider(output) {
         }
 
         blockStateModelGenerator.registerStates(ShallowDarkBlocks.SCULK_BONE_SPIKE, BoneSpikeBlock.THICKNESS, BoneSpikeBlock.FACING) { thickness, facing ->
-            BlockStateVariant.create()
-                .put(VariantSettings.MODEL, when (thickness!!) {
-                    BoneSpikeBlock.Thickness.BASE -> sculkBoneSpikeModels.BASE
-                    BoneSpikeBlock.Thickness.MIDDLE -> sculkBoneSpikeModels.MIDDLE
-                    BoneSpikeBlock.Thickness.TIP -> sculkBoneSpikeModels.TIP
+            BlockStateVariant.create().apply {
+                put(VariantSettings.MODEL, when (thickness!!) {
+                        BoneSpikeBlock.Thickness.BASE -> sculkBoneSpikeModels.BASE
+                        BoneSpikeBlock.Thickness.MIDDLE -> sculkBoneSpikeModels.MIDDLE
+                        BoneSpikeBlock.Thickness.TIP -> sculkBoneSpikeModels.TIP
                 })
-                .put(VariantSettings.Y, when (facing!!) {
-                    Direction.UP, Direction.DOWN, Direction.NORTH -> VariantSettings.Rotation.R0
+
+                when (facing!!) {
                     Direction.EAST -> VariantSettings.Rotation.R90
                     Direction.SOUTH -> VariantSettings.Rotation.R180
                     Direction.WEST -> VariantSettings.Rotation.R270
-                })
-                .put(VariantSettings.X, when (facing) {
-                    Direction.UP -> VariantSettings.Rotation.R0
+                    else -> null
+                }?.let {
+                    put(VariantSettings.Y, it)
+                }
+
+                when (facing) {
                     Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST -> VariantSettings.Rotation.R90
                     Direction.DOWN -> VariantSettings.Rotation.R180
-                })
+                    else -> null
+                }?.let {
+                    put(VariantSettings.X, it)
+                }
+            }
         }
     }
 
