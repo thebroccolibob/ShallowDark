@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "shallowdark:item/sculk_bone_spike"
+  }
+}

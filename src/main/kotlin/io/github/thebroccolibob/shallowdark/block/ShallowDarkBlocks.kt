@@ -27,6 +27,11 @@ object ShallowDarkBlocks {
         sounds(BlockSoundGroup.SCULK_SENSOR)
     }))
 
+    @JvmField
+    val SCULK_BONE_SPIKE = register("sculk_bone_spike", BoneSpikeBlock(FabricBlockSettings {
+        sounds(BlockSoundGroup.BONE)
+    }))
+
     fun register() {}
 
 

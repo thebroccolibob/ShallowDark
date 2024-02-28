@@ -73,3 +73,16 @@ fun <T1: Comparable<T1>, T2: Comparable<T2>, T3: Comparable<T3>, T4: Comparable<
 fun <T1: Comparable<T1>, T2: Comparable<T2>, T3: Comparable<T3>, T4: Comparable<T4>, T5: Comparable<T5>> BlockStateModelGenerator.registerVariantStates(block: Block, property1: Property<T1>, property2: Property<T2>, property3: Property<T3>, property4: Property<T4>, property5: Property<T5>, variantFactory: (T1, T2, T3, T4, T5) -> List<BlockStateVariant>) {
     coordinateVariants(block, BlockStateVariantMap.create(property1, property2, property3, property4, property5).registerVariants(variantFactory))
 }
+
+// Model upload builder
+
+fun BlockStateModelGenerator.upload(model: Model, id: Identifier, textureMapBuilder: TextureMapBuilder.() -> Unit): Identifier =
+    model.upload(id, TextureMapBuilder().apply(textureMapBuilder).result, this.modelCollector)
+
+class TextureMapBuilder {
+    val result = TextureMap()
+
+    infix fun TextureKey.to(id: Identifier) {
+        result.put(this, id)
+    }
+}

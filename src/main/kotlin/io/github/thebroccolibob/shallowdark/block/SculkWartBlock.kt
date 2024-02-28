@@ -50,7 +50,7 @@ class SculkWartBlock(settings: Settings) : PlantBlock(settings) {
     }
 
     override fun canPlantOnTop(floor: BlockState, world: BlockView?, pos: BlockPos?): Boolean {
-        return floor.isOf(Blocks.SCULK)
+        return floor.isOf(Blocks.SCULK) || floor.isOf(Blocks.SCULK_CATALYST)
     }
 
     @Suppress("OVERRIDE_DEPRECATION")

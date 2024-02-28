@@ -37,6 +37,7 @@ class SculkJawBlock(settings: Settings) : Block(settings) {
             VoxelShapes.fullCube(), RAYCAST_SHAPE, BooleanBiFunction.ONLY_FIRST
         )
 
+        private fun isEdible(entity: Entity): Boolean = entity.isLiving && !entity.type.isIn(ShallowDarkTags.JAW_IMMUNE) && entity.width < 1
     }
 
     init {
@@ -66,7 +67,7 @@ class SculkJawBlock(settings: Settings) : Block(settings) {
 
     @Suppress("OVERRIDE_DEPRECATION")
     override fun onEntityCollision(state: BlockState, world: World, pos: BlockPos, entity: Entity) {
-        if (entity.type.isIn(ShallowDarkTags.JAW_IMMUNE)) return
+        if (!isEdible(entity)) return
 
         if (state.get(BITE)) {
             entity.slowMovement(state, Vec3d(0.7, 0.3, 0.7))
@@ -80,7 +81,7 @@ class SculkJawBlock(settings: Settings) : Block(settings) {
     }
 
     override fun onSteppedOn(world: World, pos: BlockPos, state: BlockState, entity: Entity) {
-        if (!entity.type.isIn(ShallowDarkTags.JAW_IMMUNE) && entity.blockPos != pos && entity.blockY > pos.y) {
+        if (isEdible(entity) && entity.blockPos != pos && entity.blockY > pos.y) {
             entity.move(MovementType.SHULKER, (pos.toCenterPos() - entity.pos).withAxis(Direction.Axis.Y, 0.0).normalize().multiply(0.05))
         }
     }
@@ -88,7 +89,7 @@ class SculkJawBlock(settings: Settings) : Block(settings) {
     @Suppress("OVERRIDE_DEPRECATION")
     override fun scheduledTick(state: BlockState, world: ServerWorld, pos: BlockPos, random: Random) {
         val entities = world.getOtherEntities(null, Box(pos))
-        if (entities.isEmpty() || entities.all { it.type.isIn(ShallowDarkTags.JAW_IMMUNE) }) {
+        if (entities.isEmpty() || entities.none(::isEdible)) {
             world.setBlockState(pos, state.with(TEETH, false).with(BITE, false))
             return
         }
@@ -109,11 +110,15 @@ class SculkJawBlock(settings: Settings) : Block(settings) {
         world.spawnParticles(BlockStateParticleEffect(ParticleTypes.BLOCK, Blocks.SCULK.defaultState), centerPos.x, centerPos.y + 0.65, centerPos.z, 20, 0.2, 0.0, 0.2, 0.0)
 
         entities.forEach {
-            if (!it.type.isIn(ShallowDarkTags.JAW_IMMUNE)) {
+            if (isEdible(it)) {
                 // TODO add damage source
                 it.damage(world.damageSources.generic(), 3f)
             }
         }
     }
 
+    @Suppress("OVERRIDE_DEPRECATION")
+    override fun getCullingShape(state: BlockState?, world: BlockView?, pos: BlockPos?): VoxelShape {
+        return VoxelShapes.empty()
+    }
 }
