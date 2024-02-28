@@ -25,12 +25,14 @@ object ShallowDarkItems {
 
     val SCULK_WART = register(ShallowDarkBlocks.SCULK_WART)
     val SCULK_JAW = register(ShallowDarkBlocks.SCULK_JAW)
+    val SCULK_BONE_SPIKE = register(ShallowDarkBlocks.SCULK_BONE_SPIKE)
 
     fun register() {
         // Add to creative inventory tab
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register {
             it.add(SCULK_WART)
             it.add(SCULK_JAW)
+            it.add(SCULK_BONE_SPIKE)
         }
     }
 }

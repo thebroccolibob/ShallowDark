@@ -1,0 +1,94 @@
+{
+  "variants": {
+    "facing=down,thickness=base": {
+      "model": "shallowdark:block/sculk_bone_spike_base",
+      "x": 180,
+      "y": 0
+    },
+    "facing=down,thickness=middle": {
+      "model": "shallowdark:block/sculk_bone_spike_middle",
+      "x": 180,
+      "y": 0
+    },
+    "facing=down,thickness=tip": {
+      "model": "shallowdark:block/sculk_bone_spike_tip",
+      "x": 180,
+      "y": 0
+    },
+    "facing=east,thickness=base": {
+      "model": "shallowdark:block/sculk_bone_spike_base",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,thickness=middle": {
+      "model": "shallowdark:block/sculk_bone_spike_middle",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,thickness=tip": {
+      "model": "shallowdark:block/sculk_bone_spike_tip",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,thickness=base": {
+      "model": "shallowdark:block/sculk_bone_spike_base",
+      "x": 90,
+      "y": 0
+    },
+    "facing=north,thickness=middle": {
+      "model": "shallowdark:block/sculk_bone_spike_middle",
+      "x": 90,
+      "y": 0
+    },
+    "facing=north,thickness=tip": {
+      "model": "shallowdark:block/sculk_bone_spike_tip",
+      "x": 90,
+      "y": 0
+    },
+    "facing=south,thickness=base": {
+      "model": "shallowdark:block/sculk_bone_spike_base",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,thickness=middle": {
+      "model": "shallowdark:block/sculk_bone_spike_middle",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,thickness=tip": {
+      "model": "shallowdark:block/sculk_bone_spike_tip",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,thickness=base": {
+      "model": "shallowdark:block/sculk_bone_spike_base",
+      "x": 0,
+      "y": 0
+    },
+    "facing=up,thickness=middle": {
+      "model": "shallowdark:block/sculk_bone_spike_middle",
+      "x": 0,
+      "y": 0
+    },
+    "facing=up,thickness=tip": {
+      "model": "shallowdark:block/sculk_bone_spike_tip",
+      "x": 0,
+      "y": 0
+    },
+    "facing=west,thickness=base": {
+      "model": "shallowdark:block/sculk_bone_spike_base",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,thickness=middle": {
+      "model": "shallowdark:block/sculk_bone_spike_middle",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,thickness=tip": {
+      "model": "shallowdark:block/sculk_bone_spike_tip",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

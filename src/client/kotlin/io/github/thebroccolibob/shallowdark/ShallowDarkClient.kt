@@ -1,6 +1,6 @@
 package io.github.thebroccolibob.shallowdark
 
-import io.github.thebroccolibob.shallowdark.block.ShallowDarkBlocks.SCULK_JAW
+import io.github.thebroccolibob.shallowdark.block.ShallowDarkBlocks.SCULK_BONE_SPIKE
 import io.github.thebroccolibob.shallowdark.block.ShallowDarkBlocks.SCULK_WART
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap
@@ -14,7 +14,7 @@ object ShallowDarkClient : ClientModInitializer {
 
 	override fun onInitializeClient() {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
-		renderCutout(SCULK_JAW) // Doesn't work for some reason?
 		renderCutout(SCULK_WART)
+		renderCutout(SCULK_BONE_SPIKE)
 	}
 }

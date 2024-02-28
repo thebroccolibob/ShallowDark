@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "shallowdark:block/sculk_bone_spike_middle"
+  }
+}

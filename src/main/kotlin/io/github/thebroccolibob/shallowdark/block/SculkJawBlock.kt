@@ -116,4 +116,9 @@ class SculkJawBlock(settings: Settings) : Block(settings) {
             }
         }
     }
+
+    @Suppress("OVERRIDE_DEPRECATION")
+    override fun getCullingShape(state: BlockState?, world: BlockView?, pos: BlockPos?): VoxelShape {
+        return VoxelShapes.empty()
+    }
 }
