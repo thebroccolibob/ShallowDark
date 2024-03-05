@@ -19,16 +19,20 @@ public class SculkBlockMixin {
             method = "getExtraBlockState",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;getDefaultState()Lnet/minecraft/block/BlockState;", ordinal = 1)
     )
-    private BlockState addJawChance(Block instance, Operation<BlockState> original, @Local(argsOnly = true) Random random) {
-        return random.nextInt(4) == 0 ? ShallowDarkBlocks.SCULK_JAW.getDefaultState() : original.call(instance);
+    private BlockState addShallowChance(Block instance, Operation<BlockState> original, @Local(argsOnly = true) Random random) {
+        return random.nextInt(4) == 0 ? (
+                random.nextInt(3) == 0 ?
+                        ShallowDarkBlocks.SCULK_JAW.getDefaultState() :
+                        ShallowDarkBlocks.SCULK_WART.getDefaultState()
+        ) : original.call(instance);
     }
 
     @WrapOperation(
             method = "shouldNotDecay",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z", ordinal = 1)
     )
-    private static boolean checkJaw(BlockState instance, Block block, Operation<Boolean> original) {
-        return original.call(instance, block) || instance.isOf(ShallowDarkBlocks.SCULK_JAW);
+    private static boolean checkShallow(BlockState instance, Block block, Operation<Boolean> original) {
+        return original.call(instance, block) || instance.isOf(ShallowDarkBlocks.SCULK_JAW) || instance.isOf(ShallowDarkBlocks.SCULK_WART);
     }
 
     @WrapOperation(

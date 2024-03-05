@@ -13,6 +13,7 @@ object ShallowDarkBlocks {
         return Registry.register(Registries.BLOCK, Identifier(ShallowDark.modId, id), block)
     }
 
+    @JvmField
     val SCULK_WART = register("sculk_wart", SculkWartBlock(FabricBlockSettings {
         sounds(BlockSoundGroup.SCULK)
         nonOpaque()
