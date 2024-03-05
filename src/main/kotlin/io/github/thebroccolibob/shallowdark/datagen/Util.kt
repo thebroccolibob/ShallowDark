@@ -75,7 +75,6 @@ fun <T1: Comparable<T1>, T2: Comparable<T2>, T3: Comparable<T3>, T4: Comparable<
 }
 
 // Model upload builder
-
 fun BlockStateModelGenerator.upload(model: Model, id: Identifier, textureMapBuilder: TextureMapBuilder.() -> Unit): Identifier =
     model.upload(id, TextureMapBuilder().apply(textureMapBuilder).result, this.modelCollector)
 

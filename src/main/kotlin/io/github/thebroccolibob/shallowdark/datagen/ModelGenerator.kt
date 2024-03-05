@@ -13,7 +13,6 @@ import net.minecraft.util.Identifier
 import net.minecraft.util.math.Direction
 
 class ModelGenerator(output: FabricDataOutput) : FabricModelProvider(output) {
-
     override fun generateBlockStateModels(blockStateModelGenerator: BlockStateModelGenerator) {
         val sculkJawModels = object {
             private fun upload(suffix: String) = blockStateModelGenerator.upload(Models.CUBE_BOTTOM_TOP, ShallowDarkBlocks.SCULK_JAW.modelId(suffix)) {
@@ -28,7 +27,6 @@ class ModelGenerator(output: FabricDataOutput) : FabricModelProvider(output) {
         }
 
         blockStateModelGenerator.registerCrop(ShallowDarkBlocks.SCULK_WART, SculkWartBlock.AGE, 0, 1, 2, 3)
-
         blockStateModelGenerator.registerVariantStates(ShallowDarkBlocks.SCULK_JAW, SculkJawBlock.TEETH, SculkJawBlock.BITE) { teeth, bite ->
             val model = when {
                 bite -> sculkJawModels.BITE

@@ -13,12 +13,12 @@ import net.minecraft.registry.Registry
 import net.minecraft.util.Identifier
 
 object ShallowDarkItems {
-    // Creates an item from a block
+    // Creates Item from Block
     private fun register(block: Block, settings: FabricItemSettings = FabricItemSettings()): Item {
         return Registry.register(Registries.ITEM, Registries.BLOCK.getId(block), BlockItem(block, settings))
     }
 
-    // Creates regular item
+    // Creates Item
     private fun register(id: String, item: Item): Item {
         return Registry.register(Registries.ITEM, Identifier(ShallowDark.modId, id), item)
     }
@@ -28,7 +28,7 @@ object ShallowDarkItems {
     val SCULK_BONE_SPIKE = register(ShallowDarkBlocks.SCULK_BONE_SPIKE)
 
     fun register() {
-        // Add to creative inventory tab
+        // Add to Creative Inventory
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register {
             it.add(SCULK_WART)
             it.add(SCULK_JAW)
