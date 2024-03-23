@@ -9,6 +9,8 @@ object ShallowDarkDataGenerator : DataGeneratorEntrypoint {
 			addProvider(TagGenerators::Entities)
 			addProvider(TagGenerators::Blocks)
 			addProvider(::ModelGenerator)
+			addProvider(::LootTableGenerator)
+			addProvider(::EnglishLangGenerator)
 		}
 	}
 }

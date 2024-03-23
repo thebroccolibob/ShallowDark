@@ -21,6 +21,7 @@ object ShallowDarkBlocks {
         ticksRandomly()
         breakInstantly()
         luminance(7)
+        emissiveLighting { _, _, _ ->  true}
     }))
 
     @JvmField
