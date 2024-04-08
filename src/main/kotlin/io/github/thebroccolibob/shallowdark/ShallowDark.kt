@@ -4,8 +4,9 @@ import io.github.thebroccolibob.shallowdark.block.ShallowDarkBlocks
 import io.github.thebroccolibob.shallowdark.item.ShallowDarkItems
 import net.fabricmc.api.ModInitializer
 import org.slf4j.LoggerFactory
+import terrablender.api.TerraBlenderApi
 
-object ShallowDark : ModInitializer {
+object ShallowDark : ModInitializer, TerraBlenderApi {
 	val modId = "shallowdark"
     val logger = LoggerFactory.getLogger(modId)
 
@@ -16,6 +17,10 @@ object ShallowDark : ModInitializer {
 		logger.info("Hello Fabric world!")
 		ShallowDarkBlocks.register()
 		ShallowDarkItems.register()
+	}
+
+	override fun onTerraBlenderInitialized() {
+		
 	}
 }
 

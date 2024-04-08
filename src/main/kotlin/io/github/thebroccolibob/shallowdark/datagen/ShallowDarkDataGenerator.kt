@@ -12,5 +12,7 @@ object ShallowDarkDataGenerator : DataGeneratorEntrypoint {
 			addProvider(::LootTableGenerator)
 			addProvider(::EnglishLangGenerator)
 		}
+
+
 	}
 }

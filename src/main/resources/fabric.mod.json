@@ -32,6 +32,9 @@
 				"value": "io.github.thebroccolibob.shallowdark.datagen.ShallowDarkDataGenerator",
 				"adapter": "kotlin"
 			}
+		],
+		"terrablender": [
+			"io.github.thebroccolibob.shallowdark.ShallowDark"
 		]
 	},
 	"mixins": [
