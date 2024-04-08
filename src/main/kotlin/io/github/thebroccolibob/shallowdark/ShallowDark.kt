@@ -18,10 +18,4 @@ object ShallowDark : ModInitializer, TerraBlenderApi {
 		ShallowDarkBlocks.register()
 		ShallowDarkItems.register()
 	}
-
-	override fun onTerraBlenderInitialized() {
-		
-	}
 }
-
-//

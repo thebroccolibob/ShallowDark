@@ -34,7 +34,7 @@
 			}
 		],
 		"terrablender": [
-			"io.github.thebroccolibob.shallowdark.ShallowDark"
+			"io.github.thebroccolibob.shallowdark.ModTerrablenderAPI"
 		]
 	},
 	"mixins": [
